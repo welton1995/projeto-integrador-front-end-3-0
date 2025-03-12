@@ -1,0 +1,345 @@
+* {
+  font-family: "Vollkorn", serif;
+}
+
+a {
+  margin: .25rem
+}
+
+.body-dark {
+  background-color: #212529;
+  color: #899095;
+
+}
+
+.footer {
+  background: linear-gradient(#00c6fb 0%, #005bea 100%);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  bottom: 1px;
+  margin-top: 60px;
+}
+
+.footer-dark {
+  background: linear-gradient(#585858 0%, #000 100%);
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  bottom: 1px;
+  margin-top: 60px;
+}
+
+.header {
+  background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+  color: #fff;
+}
+
+.header-dark {
+  background: linear-gradient(#000 0%, #585858 100%);
+}
+
+
+.container-default {
+  border-radius: 16px;
+  background: linear-gradient(to top, #005bea 0%, #00c6fb) 100%;
+}
+
+.container-default-dark {
+  background: linear-gradient(#585858 0%, #222121 100%);
+
+}
+
+.pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.logo {
+  filter: drop-shadow(4px 4px 2px black);
+}
+
+p {
+  letter-spacing: -0.005em;
+  font-size: 1.025rem
+}
+
+body {
+  min-width: auto;
+  min-height: 100vh;
+  background-color: #e3e4e6;
+}
+
+main {
+  min-height: 75vh;
+}
+
+.logo:hover {
+  animation: rubberBand ease-in-out; 
+  animation-duration: 1s;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px black;
+}
+
+.icon {
+  transition: ease .3s;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+
+}
+.icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.animacao {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: heartBeat infinite ease-in-out; 
+  animation-duration: 10s;
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+.sombra {
+  filter: drop-shadow(4px 4px 1px black);
+  color: white;
+  margin: .55rem;
+}
+
+.botao {
+  background-color: #00c6fb;
+  font-weight: 700;
+  color: white;
+}
+.botao:hover {
+  background-color: #00c5fbc2;
+  font-weight: 700;
+  color: white;
+}
+
+.tamanhoInput {
+  width: 75%;
+  margin: .25rem;
+}
+
+/* Registra Saída */
+.botaoMenosMais {
+  width: 4rem;
+  height: 3rem;
+}
+
+.visor {
+  width: 5rem;
+  height: 3rem;
+  margin: 0 .5rem
+}
+
+.inputsRegistrarSaida {
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
+.inputConfirmaSaida, .inputConfirmaEntrada {
+  width: 105px;
+  margin: .5rem;
+}
+
+.nomesFormulario {
+  font-weight: bold;
+  color: aliceblue;
+  margin-right: .5rem;
+}
+
+td {
+  transition: .3s;
+}
+
+tr:hover td {
+  background-color: #92ddf1;
+}
+
+/* Barra de navegação */
+/* Estilo para a barra de rolagem vertical */
+::-webkit-scrollbar {
+  width: 15px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #313333;
+   /* Cor do botão de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Cor da área da barra de rolagem */
+}
+
+/* Estilo para a barra de rolagem horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 15px; /* Altura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #313333;
+ /* Cor do botão de rolagem horizontal */
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background-color: #f1f1f1; /* Cor da área da barra de rolagem horizontal */
+}
+
+.submenu {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 13px;
+  transition: 0.4s ease-in-out;
+  text-shadow: 2px 2px 2px black;
+}
+
+.submenu:hover {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+
+th , td{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional */
+}
+
+
+@keyframes setaAnimacao {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.seta{
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .seta {
+    display: inline-block;
+    animation: setaAnimacao .8s ease-in infinite alternate;
+  }
+}
+
+.img-container {
+  max-width: 90%; /* Reduz o tamanho da imagem para 80% da largura do container */
+  text-align: center; /* Centraliza a imagem dentro do container */
+}
+
+.card-img-top {
+  max-width: 100%; /* Garante que a imagem não ultrapasse o limite do container */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 8px; /* Adiciona bordas arredondadas, opcional */
+  object-fit: cover; /* Ajusta a imagem para caber no espaço sem distorção */
+}
+
+
+.text-justify-custom {
+  text-align: justify;
+}
+
+.text-defaul {
+  font-size: 2.5rem;
+  font-family: "Vollkorn", serif;
+  font-style: italic;
+  font-weight: 700;
+  color:#fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 3s forwards;
+  opacity: 0;
+
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.options {
+  margin: 0 auto 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
+
+.options:hover {
+  box-shadow: 5px 5px 15px 0px rgba(255, 249, 249, 0.712);
+  transform: scale(1.02);
+}
+
+
+.loading-link {
+  position: relative; /* Necessário para posicionar o pseudo-elemento */
+  color: #fff; /* Cor do link */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-size: 18px; /* Tamanho do texto */
+  padding: 10px 15px; /* Espaço em volta do link */
+  display: inline-block; /* Para que o pseudo-elemento fique alinhado corretamente */
+  transition: color 0.3s; /* Transição de cor */
+}
+
+/* Estilo da barra de carregamento */
+.loading-link::after {
+  content: ''; /* Necessário para criar o pseudo-elemento */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Começa com 0 de largura */
+  height: 4px; /* Altura da barra */
+  background-color: #00c6fb; /* Cor da barra */
+  transition: width 0.8s ease; /* Transição da largura */
+}
+
+/* Efeito ao passar o mouse */
+.loading-link:hover::after {
+  width: 100%; /* A barra se expande ao passar o mouse */
+}
+
+
+
+/* Estilo do botão no modo dark */
+.btn-dark-mode {
+  background-color: #1C1C1C; /* Fundo escuro */
+  color: #E0E0E0; /* Texto claro */
+  border: 1px solid #333; /* Borda discreta */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transições suaves */
+}
+
+/* Estilo ao passar o mouse */
+.btn-dark-mode:hover {
+  background-color: #333; /* Fundo mais claro ao passar o mouse */
+  color: #FFFFFF; /* Texto mais claro */
+  border-color: #444; /* Borda mais clara */
+}
+
+#loading {
+  display: none;
+  align-items: center;
+  text-align: center;
+}
+
