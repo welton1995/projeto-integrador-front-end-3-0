@@ -1,0 +1,66 @@
+/* Modo escuro para o body e cards */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* Modo escuro para o Modal */
+.dark-mode .modal-content {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
+
+.dark-mode .btn-close {
+  filter: invert(1);
+}
+
+/* Modo escuro para os inputs */
+.dark-mode input {
+  background-color: #2c2c2c;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark-mode input::placeholder {
+  color: #bbb;
+}
+
+#loginForm {
+    width: 25vw;
+    max-width: 400px; /* Define um limite para telas grandes */
+    min-width: 300px; /* Evita que fique muito pequeno em telas menores */
+    margin: 0 auto; /* Centraliza na página */
+
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .login-container {
+      max-width: 90%;
+  }
+}
+
+/* Botão de modo escuro no canto superior direito */
+#toggleDarkMode {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333; /* Cor padrão */
+  transition: color 0.3s ease-in-out;
+}
+
+/* Ajuste para modo escuro */
+.dark-mode #toggleDarkMode {
+  color: #fff; /* Fica branco no modo escuro */
+}
