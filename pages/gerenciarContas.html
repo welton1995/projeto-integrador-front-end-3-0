@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
   
-  <title>Gestão de Estoque</title>
+  <title>Gerenciar Contas</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -87,6 +87,8 @@
                 </ul>
               </div>
             </li>
+
+            <!-- Menu Contas -->
             <li class="nav-item">
               <a class="nav-link active icon link" href="#" data-bs-toggle="collapse" data-bs-target="#submenuEstoque2" style="color: white; transition: 0.5s ease-in-out;">
                 Contas <img src="../imgs/contas.png" width="28px" class="icon">
@@ -94,7 +96,7 @@
               <div class="collapse" id="submenuEstoque2">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="./gerenciarContas.html">• Gerenciar Contas 
+                    <a class="nav-link icon submenu d-block" href="./servicos.html">• Gerenciar Contas 
                       <img src="../imgs/users.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -130,15 +132,11 @@
     <div class="row container container-default d-flex align-items-center justify-content-center">
       <div class="pagina">
         <div class="align-items-start">
-          <h1 class="sombra"><strong>Estoque</strong>
-            <img src="../imgs/estoque-pronto.png" width="48px" class="sombra">
+          <h1 class="sombra"><strong>Gerenciar Contas</strong>
+            <img src="../imgs/users.png" width="48px" class="sombra">
           </h1>
         </div>
-        <div class="align-items-end">
-          <h1 class="sombra">
-            <img src="../imgs/pdf.png" width="48px" id="generate-pdf" class="icon sombra">
-          </h1>
-        </div>
+
       </div>
 
       <div class="col-12">
@@ -146,9 +144,9 @@
           <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">Modelo <img src="../imgs/chave.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Código <img src="../imgs/codigo.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Quantidade <img src="../imgs/quantidade.png" alt="" width="16px"></th>
+                    <th scope="col" class="text-center">Usuario <img src="../imgs/users.png" alt="" width="16px"></th>
+                    <th scope="col" class="text-center">E-mail <img src="../imgs/mail.png" alt="" width="16px"></th>
+
                     <th scope="col" class="text-center">Ações <img src="../imgs/opcoes.png" width="16px"></th>
                 </tr>
             </thead>
@@ -254,14 +252,12 @@
 
 <footer class="footer">
   <div class="container">
-    <p><strong>&copy; 2025 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
+    <p><strong>&copy; 2024 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
   </div>
 </footer>
 
 <script src="../js/pesquisarCodigo.js" defer></script>
-<script src="../js/geradorPDF.js" defer></script>
-<script src="../js/app.js" defer></script>
-<script src="../js/servicos.js" defer></script>
+<script src="../js/gerenciarcontas.js" defer></script>
 <script src="../js/modoNoturno.js"></script>
 </body>
 </html>

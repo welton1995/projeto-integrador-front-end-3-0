@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 
@@ -16,11 +16,10 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
   
-  <title>Gestão de Estoque</title>
+  <title>Editar Conta</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
   <header>
     <nav class="navbar navbar-expand-lg header">
       <div class="container-fluid">
@@ -44,7 +43,7 @@
               <div class="collapse" id="submenuEstoque">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="#">• Saldo 
+                    <a class="nav-link icon submenu d-block" href="./estoque.html">• Saldo 
                     <img src="../imgs/saldo.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -75,7 +74,7 @@
               <div class="collapse" id="submenuEstoque1">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="servicos.html">• Resumo 
+                    <a class="nav-link icon submenu d-block" href="./servicos.html">• Resumo 
                       <img src="../imgs/resumo.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -94,7 +93,7 @@
               <div class="collapse" id="submenuEstoque2">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="./gerenciarContas.html">• Gerenciar Contas 
+                    <a class="nav-link icon submenu d-block" href="./servicos.html">• Gerenciar Contas 
                       <img src="../imgs/users.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -125,48 +124,50 @@
     </nav>
   </header> 
 
-
-<main class="container container-default mt-4 d-flex align-items-center justify-content-center" >
-    <div class="row container container-default d-flex align-items-center justify-content-center">
+<main class="container mt-4 d-flex align-items-center justify-content-center" >
+    <div class="row container container-default d-flex align-items-start justify-content-between">
       <div class="pagina">
         <div class="align-items-start">
-          <h1 class="sombra"><strong>Estoque</strong>
-            <img src="../imgs/estoque-pronto.png" width="48px" class="sombra">
-          </h1>
-        </div>
-        <div class="align-items-end">
-          <h1 class="sombra">
-            <img src="../imgs/pdf.png" width="48px" id="generate-pdf" class="icon sombra">
+          <h1 class="sombra"><strong>Editar Conta</strong>
+            <img src="../imgs/pencil.png" width="48px" class="sombra">
           </h1>
         </div>
       </div>
 
       <div class="col-12">
-        <div id="conteudo" class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">Modelo <img src="../imgs/chave.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Código <img src="../imgs/codigo.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Quantidade <img src="../imgs/quantidade.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Ações <img src="../imgs/opcoes.png" width="16px"></th>
-                </tr>
-            </thead>
-            <tbody id="tabela">
-              <p class="text-center">
-                <img src="../imgs/Loading.gif" id="loading" width="28px">
-              </p>
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-end align-items-end">
-          <img class="seta" src="../imgs/seta.png" title='Visualizar mais' style="margin: 0.5rem; width: 18px;">
+        <div id="conteudo">
+          <div class="d-flex justify-content-center">
+            <form class="justify-content-center justify-content-center" style="width: 80%;">
+
+
+    
+              <div class=" d-flex align-items-center justify-content-center">
+                <input type="email" disabled class="form-control inputsRegistrarSaida" id="usuarioEmail" placeholder="E-mail">
+              </div>
+              <div class=" d-flex align-items-center justify-content-center">
+                <input type="text" class="form-control inputsRegistrarSaida" id="usuarioNome" placeholder="Usuario">
+              </div>
+              <div class=" d-flex align-items-center justify-content-center">
+                <input type="password" class="form-control inputsRegistrarSaida" id="usuarioSenha" placeholder="Senha">
+              </div>
+              <div class=" d-flex align-items-center justify-content-center">
+                <input type="password" class="form-control inputsRegistrarSaida" id="confirmaSenha" placeholder="Confirmar Senha">
+              </div>
+
+              <div class="d-flex align-items-center justify-content-center">
+                <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <a href="./gerenciarContas.html" class="btn btn-secondary m-2">Voltar</a>
+                <a href="" id="btnAtualizar" class="btn text-bg-success">Atualizar</a>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
-      </div>
       </div>
     </div>
 
-    <!-- Cadastrar modal -->
+     <!-- Cadastrar modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -200,57 +201,59 @@
       </div>
     </div>
     </div>
+
     <!-- Servicos Modal -->
     <div class="modal fade" id="servicoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Serviços</strong>
-                <img src="../imgs/servico-nav.png" width="32px">          
-              </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-              <form class="justify-content-center justify-content-center">
-      
-                <div class="d-flex align-items-center justify-content-center">
-                  <select class="form-select inputsRegistrarSaida" id="servicoTipo" aria-label="Tipo de transação">
-                    <option selected>Selecione um tipo</option>
-                    <option value="Serviço">Serviço</option>
-                    <option value="Venda">Venda</option>
-                  </select>
-                </div>
-      
-                <div class=" d-flex align-items-center justify-content-center">
-                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoPreco" placeholder="Preço (R$)">
-                </div>
-                <div class=" d-flex align-items-center justify-content-center">
-                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoCusto" placeholder="Custo (R$)">
-                </div>
-                <div class=" d-flex align-items-center justify-content-center">
-                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoQuantidade" placeholder="Quantidade">
-                </div>
-                <div class=" d-flex align-items-center justify-content-center">
-                  <input type="datetime-local" class="form-control inputsRegistrarSaida" id="servicoData" placeholder="Data">
-                </div>
-                <div class=" d-flex align-items-center justify-content-center">
-                  <textarea class="form-control inputsRegistrarSaida" id="servicoObservacao" placeholder="Observação"></textarea>
-                </div>
-                <div class="d-flex align-items-center justify-content-center">
-                  <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
-                </div>
-      
-              </form>
-            </div>
-            <div class="modal-footer d-flex align-items-center justify-content-center">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-success" id="btnServicoCadastrar">Cadastrar</button>
-            </div>
-          </div>
-            </div>
-    </div>
-</main>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Serviços</strong>
+          <img src="../imgs/servico-nav.png" width="32px">          
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form class="justify-content-center justify-content-center">
 
+          <div class="d-flex align-items-center justify-content-center">
+            <select class="form-select inputsRegistrarSaida" id="servicoTipoModal" aria-label="Tipo de transação">
+              <option selected>Selecione um tipo</option>
+              <option value="Serviço">Serviço</option>
+              <option value="Venda">Venda</option>
+            </select>
+          </div>
+
+          <div class=" d-flex align-items-center justify-content-center">
+            <input type="number" class="form-control inputsRegistrarSaida" id="servicoPrecoModal" placeholder="Preço (R$)">
+          </div>
+          <div class=" d-flex align-items-center justify-content-center">
+            <input type="number" class="form-control inputsRegistrarSaida" id="servicoCustoModal" placeholder="Custo (R$)">
+          </div>
+          <div class=" d-flex align-items-center justify-content-center">
+            <input type="number" class="form-control inputsRegistrarSaida" id="servicoQuantidadeModal" placeholder="Quantidade">
+          </div>
+          <div class=" d-flex align-items-center justify-content-center">
+            <input type="datetime-local" class="form-control inputsRegistrarSaida" id="servicoDataModal" placeholder="Data">
+          </div>
+          <div class=" d-flex align-items-center justify-content-center">
+            <textarea class="form-control inputsRegistrarSaida" id="servicoObservacaoModal" placeholder="Observação"></textarea>
+          </div>
+          <div class="d-flex align-items-center justify-content-center">
+            <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer d-flex align-items-center justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" id="btnServicoCadastrar">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+</main>
 
 <footer class="footer">
   <div class="container">
@@ -259,9 +262,8 @@
 </footer>
 
 <script src="../js/pesquisarCodigo.js" defer></script>
-<script src="../js/geradorPDF.js" defer></script>
 <script src="../js/app.js" defer></script>
-<script src="../js/servicos.js" defer></script>
-<script src="../js/modoNoturno.js"></script>
+<script src="../js/editarConta.js" defer></script>
+<script src="../js/modoNoturno.js" defer></script>
 </body>
 </html>
