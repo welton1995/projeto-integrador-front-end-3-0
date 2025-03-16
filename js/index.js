@@ -89,3 +89,12 @@ btnCadastrarServico.addEventListener('click', async (e) => {
     loadingImg1.style.display = 'none';
   }
 });
+
+
+
+
+// async function verificarAutenticacao() {
+
+// }
+
+// verificarAutenticacao();
