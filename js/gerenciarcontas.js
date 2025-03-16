@@ -1,4 +1,4 @@
-const urlApi = 'http://localhost:3333/usuarios';
+const urlApi = 'https://pi3univesp.vercel.app/usuarios';
 
 
 // Lista todas chaves cadastradas
