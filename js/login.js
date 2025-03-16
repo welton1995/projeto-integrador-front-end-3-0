@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const loading = document.querySelector('#loading');
 
       try {
-          const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login', {  
+          const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/', {  
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ email, senha })
