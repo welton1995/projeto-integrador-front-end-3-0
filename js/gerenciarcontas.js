@@ -3,8 +3,12 @@ const urlApi = 'https://pi3univesp.vercel.app/usuarios';
 
 // Lista todas chaves cadastradas
 const buscaRegistros = async () => {
+const loading = document.querySelector('#loading');
+
   try {
-      const requestOptions = {
+    loading.style.display = 'block';
+    
+    const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
@@ -30,12 +34,15 @@ const buscaRegistros = async () => {
       <td class="text-center align-middle">${usuario.nome}</a></td>
       <td class="text-center align-middle">${usuario.email}</a></td>
       <td class="text-center align-middle">
-        <a href="./editarConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/pencil.png" width="24px" title="Editar Usuario" class='icon'></a>
         <a href="./excluirConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/lixeira.png" width="24px" title="Remover Usuario" class='icon'></a>
+        <a href="./editarConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/editar.png" width="24px" title="Editar Usuario" class='icon'></a>
       </td>
       `
       tabela.appendChild(tr); 
     });
+
+    loading.style.display = 'none';
+
 
   } catch (error) {
     return console.log(error);

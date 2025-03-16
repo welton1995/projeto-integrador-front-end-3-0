@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
   
-  <title>Gerenciar Contas</title>
+  <title>Excluir Contas</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -96,7 +96,7 @@
               <div class="collapse" id="submenuEstoque2">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
-                    <a class="nav-link icon submenu d-block" href="#">• Gerenciar Contas 
+                    <a class="nav-link icon submenu d-block" href="./gerenciarContas.html">• Gerenciar Contas 
                       <img src="../imgs/users.png" alt="adicionar" width="26px">
                     </a>
                   </li>
@@ -128,41 +128,44 @@
   </header> 
 
 
-<main class="container container-default mt-4 d-flex align-items-center justify-content-center" >
-    <div class="row container container-default d-flex align-items-center justify-content-center">
-      <div class="pagina">
+<main class="d-flex align-items-center justify-content-center" >
+    <div class="row  container-default d-flex align-items-center justify-content-center">
+
         <div class="align-items-start">
-          <h1 class="sombra"><strong>Gerenciar Contas</strong>
-            <img src="../imgs/users.png" width="48px" class="sombra">
+          <h1 class="sombra"><strong>Excluir Conta</strong>
+            <img src="../imgs/delete-user.png" width="48px" class="sombra">
           </h1>
-
         </div>
+           <!-- formulario -->
+          <form class="justify-content-center justify-content-center">
+            <!-- Nome -->
+            <div class="d-flex flex-column align-items-center justify-content-center">
+             <div style="width: 100%;" class="d-flex align-items-center">
+              <p class="nomesFormulario">Nome: </p>
+              <input type="text" class="form-control inputsRegistrarSaida" id="contaNomeExcluir" disabled>
+             </div>
+            </div>
+            <!-- Email -->
+            <div class=" d-flex align-items-center justify-content-center">
+             <div style="width: 100%;" class="d-flex align-items-center">
+                <p class="nomesFormulario">E-mail: </p>
+                <input type="text" class="form-control inputsRegistrarSaida" id="contaEmailExcluir" disabled>
+              </div>
+            </div>
 
-      </div>
-
-      <div class="col-12">
-        <div id="conteudo" class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">Usuario <img src="../imgs/users.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">E-mail <img src="../imgs/mail.png" alt="" width="16px"></th>
-                    <th scope="col" class="text-center">Ações <img src="../imgs/opcoes.png" width="16px"></th>
-                </tr>
-            </thead>
-            <tbody id="tabela">
-              
-              <div class="d-flex justify-content-center align-items-center">
-                <img src="../imgs/Loading.gif" id="loading" style="width: 7%; margin: 1rem">
-              </div>              
-            </tbody>
-        </table>
+  
+              <div class="d-flex justify-content-center">
+                <a href="./gerenciarContas.html" class="btn btn-secondary inputConfirmaSaida">Voltar</a>
+                <button class="btn btn-success inputConfirmaSaida"  id="btnExcluirConfirma">Confimar</button>
+              </div>
+          </form>
+     
         <div class="d-flex justify-content-end align-items-end">
           <img class="seta" src="../imgs/seta.png" title='Visualizar mais' style="margin: 0.5rem; width: 18px;">
         </div>
-        </div>
+
       </div>
-      </div>
+
     </div>
 
     <!-- Cadastrar modal -->
@@ -299,8 +302,9 @@
 
 <script src="../js/pesquisarCodigo.js" defer></script>
 <script src="../js/gerenciarcontas.js" defer></script>
-<script src="../js/modoNoturno.js"></script>
-<script src="../js/cadastrarConta.js"></script>
+<script src="../js/modoNoturno.js" defer></script>
+<script src="../js/cadastrarConta.js" defer ></script>
+<script src="../js/excluirConta.js" defer></script>
 
 
 </body>
