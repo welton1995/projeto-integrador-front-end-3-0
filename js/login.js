@@ -108,5 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
             successMessage.style.color = "red";
         }
     });
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
   });
   

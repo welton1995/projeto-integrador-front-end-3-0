@@ -10,3 +10,16 @@ document.addEventListener("DOMContentLoaded", async ()=> {
       window.location.href = "../index.html";
   }
 });
+
+const sair  = document.querySelector('#sair');
+
+sair.addEventListener('click', async (event)=> {
+  event.preventDefault();
+
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+
+  setTimeout(()=> {
+    window.location.href='../index.html'
+  }, 80);
+});
