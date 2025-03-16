@@ -7,41 +7,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/login.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+
 </head>
 <body>
-
-    <!-- Botão para alternar modo escuro -->
     <button id="toggleDarkMode" class="btn btn-dark mode-toggle">
         <i id="modeIcon" class="fas fa-moon"></i>
     </button>
-
     <div class="d-flex justify-content-center align-items-center vh-100 login">
-        <div class="card p-4 shadow-lg login-container">
-            <h2 class="text-center">Login</h2>
-            <div class="d-flex justify-content-center align-items-center">
-              <img src="../imgs/loading.gif" alt="carregando" title="carregando" width="5%" id="loading" style="display: none;">
+        <div class="card p-4 shadow-lg login-container formulario text-center">
+
+            <div class="d-flex justify-content-center">
+                <img src="./imgs/logoEditado.png" alt="logo" class="logo img-fluid mb-3" style="width: 80px;">
             </div>
             <form id="loginForm">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-control" required>
+                    <input type="email" id="email" class="form-control rounded-pill p-2" required>
                 </div>
                 <div class="mb-3">
                     <label for="senha" class="form-label">Senha</label>
-                    <input type="password" id="senha" class="form-control" required>
+                    <input type="password" id="senha" class="form-control rounded-pill p-2" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                <div class="d-flex justify-content-center">
+                    <img src="./imgs/loading.gif" alt="loading" style="width: 10%; margin: 1rem; display: none;" id="loading">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 rounded-pill">Entrar</button>
             </form>
             <p class="text-danger text-center mt-3" id="errorMessage"></p>
-            <p class="text-center mt-2">
+            <p class="mt-2">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Esqueceu sua senha?</a>
             </p>
         </div>
     </div>
-
-    <!-- Modal de Recuperação de Senha -->
     <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="forgotPasswordLabel">Recuperar Senha</h5>
@@ -49,7 +48,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Digite seu email para receber instruções de redefinição de senha.</p>
-                    <input type="email" id="forgotEmail" class="form-control" placeholder="Digite seu email" required>
+                    <input type="email" id="forgotEmail" class="form-control rounded-pill" placeholder="Digite seu email" required>
                     <p class="text-success mt-2" id="successMessage"></p>
                 </div>
                 <div class="modal-footer">
@@ -59,9 +58,7 @@
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/login.js"></script>
-
 </body>
 </html>
