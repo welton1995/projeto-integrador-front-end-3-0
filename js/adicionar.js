@@ -61,88 +61,30 @@ btnCadastrar.addEventListener('click', async(event)=> {
 
     const resposta = await fetch(ulrApi, requestOptions);
     const conteudo = await resposta.json();
+    console.log(conteudo)
 
-    if(conteudo == 'Código de chave já cadastrado!'){
-      Swal.fire({
-        title: "Código de chave já cadastrado!",
-        icon: "warning",
-        confirmButtonColor: "#5bc0de",
-      });
-      return;
-    }
+    // if(conteudo == 'Código de chave já cadastrado!'){
+    //   Swal.fire({
+    //     title: "Código de chave já cadastrado!",
+    //     icon: "warning",
+    //     confirmButtonColor: "#5bc0de",
+    //   });
+    //   return;
+    // }
 
-    if(conteudo == 'Chave cadastrada com sucesso!'){
-      Swal.fire({
-        title: "Chave cadastrada com sucesso!",
-        icon: "success",
-        confirmButtonColor: "#5cb85c",
-      });
+    // if(conteudo == 'Chave cadastrada com sucesso!'){
+    //   Swal.fire({
+    //     title: "Chave cadastrada com sucesso!",
+    //     icon: "success",
+    //     confirmButtonColor: "#5cb85c",
+    //   });
 
-      setTimeout(()=> {
-        window.location.href = './estoque.html';
-      }, 1500);  
-    }
-
-  } catch (error) {
-    return console.log(error);
-  }
-});
-
-
-// Registra entradas no estoque
-confirmaEntrada.addEventListener('click', async(event) => {
-  try {
-    event.preventDefault();
-    const raw = {
-      quantidade: +quantidadeSaida.value,
-    }
-
-    const requestOptions = {
-      method: 'POST',
-      redirect: 'follow',
-      body: JSON.stringify(raw),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-
-    if(quantidadeSaida.value == 0){
-      Swal.fire({
-        title: "Quantidade deve ser maior ou igual a 1.",
-        icon: "warning",
-        confirmButtonColor: "#0275d8",
-      });
-      return;
-    }
-    
-    const resposta = await fetch(`${ulrApi}/entradas/${id}`, requestOptions);
-    const conteudo = await resposta.json();
-
-    if(conteudo == 'Entrada realizada com sucesso!'){
-      await Swal.fire({
-        title: `${quantidadeSaida.value} unidades adicionadas ao estoque!`,
-        icon: "success",
-        confirmButtonColor: "#5cb85c",
-      });
-    }
-
-      window.location.href = './estoque.html';
+    //   setTimeout(()=> {
+    //     window.location.href = './estoque.html';
+    //   }, 1500);  
+    // }
 
   } catch (error) {
     return console.log(error);
   }
 });
-
-    // Adiciona um evento de clique ao botão de mais
-    botaoMais.addEventListener('click', function(event) {
-      event.preventDefault();
-      inputNumero.value = parseInt(inputNumero.value) + 1;
-    });
-
-    // Adiciona um evento de clique ao botão de menos
-    botaoMenos.addEventListener('click', function(event) {
-      event.preventDefault();
-      if (parseInt(inputNumero.value) > 0) {
-        inputNumero.value = parseInt(inputNumero.value) - 1;
-      }
-    });
