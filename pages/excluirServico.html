@@ -255,11 +255,51 @@
     </div>
   </div>
     </div>
+
+    <!-- Contas Modal -->
+    <div class="modal fade" id="ContasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Novo Usuário</strong>
+            <img src="../imgs/add-user.png" width="32px">          
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form class="justify-content-center justify-content-center">
+    
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="text" class="form-control inputsRegistrarSaida" id="contaNome" placeholder="Nome">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="email" required name="email" class="form-control inputsRegistrarSaida" id="contaEmail" placeholder="E-mail">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="password" class="form-control inputsRegistrarSaida" id="contaSenha" placeholder="Senha">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="password" class="form-control inputsRegistrarSaida" id="contaConfirmaSenha" placeholder="Confirma Senha">
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center">
+              <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+            </div>
+  
+          </form>
+          <div class="modal-footer d-flex align-items-center justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success" id="btnContaCadastrar">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+        </div>
+    </div>
 </main>
 
 <footer class="footer">
   <div class="container">
-    <p><strong>&copy; 2024 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
+    <p><strong>&copy; 2025 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
   </div>
 </footer>
 
@@ -267,6 +307,8 @@
 <script src="../js/app.js" defer></script>
 <script src="../js/excluirServico.js" defer></script>
 <script src="../js/modoNoturno.js" defer></script>
+<script src="../js/cadastrarConta.js"></script>
+
 
 </body>
 </html>
