@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../imgs/logoBranco.png" type="image/png">
-
   <!-- html2pdf -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
@@ -40,6 +40,7 @@
               <a class="nav-link icon link" href="#" style="color: white; transition: 0.5s ease-in-out;" data-bs-toggle="collapse" data-bs-target="#submenuEstoque" aria-expanded="false" aria-controls="submenuEstoque">
                 Estoque <img src="../imgs/estoque-pronto.png" width="28px" class="icon">
               </a>
+              <!-- Submenu oculto -->
               <div class="collapse" id="submenuEstoque">
                 <ul class="navbar-nav flex-column ms-3">
                   <li class="nav-item">
@@ -118,6 +119,7 @@
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" id="buscaCodigo" maxlength="5" placeholder="Pesquisar código" aria-label="Search">
             <button class="btn btn-primary loading-link btns" type="submit" id="btnBuscaCodigo">Pesquisar</button>
+            <!-- Botão de modo noturno -->
             <a id="toggleDarkMode" style="margin: 0 0 0 12px;" class="btn btn-primary loading-link btns">🌙</a>
           </form>
         </div>
@@ -125,7 +127,8 @@
     </nav>
   </header> 
 
-  <main class="container container-default mt-4 d-flex align-items-center justify-content-center">
+
+<main class="container container-default mt-4 d-flex align-items-center justify-content-center" >
     <div class="row container container-default d-flex align-items-center justify-content-center">
       <div class="pagina">
         <div class="align-items-start">
@@ -133,6 +136,7 @@
             <img src="../imgs/users.png" width="48px" class="sombra">
           </h1>
         </div>
+
       </div>
 
       <div class="col-12">
@@ -142,12 +146,13 @@
                 <tr>
                     <th scope="col" class="text-center">Usuario <img src="../imgs/users.png" alt="" width="16px"></th>
                     <th scope="col" class="text-center">E-mail <img src="../imgs/mail.png" alt="" width="16px"></th>
+
                     <th scope="col" class="text-center">Ações <img src="../imgs/opcoes.png" width="16px"></th>
                 </tr>
             </thead>
             <tbody id="tabela">
               <p class="text-center">
-                <img src="../imgs/Loading.gif" id="loading" width="28px" style="display: none;">
+                <img src="../imgs/Loading.gif" id="loading" width="28px">
               </p>
             </tbody>
         </table>
@@ -158,16 +163,101 @@
       </div>
       </div>
     </div>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p><strong>&copy; 2024 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
+    <!-- Cadastrar modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar</strong>
+            <img src="../imgs/chave.png" width="32px">          
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form class="justify-content-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <input type="text" class="form-control inputsRegistrarSaida" id="inputModeloCadastrar" placeholder="Modelo">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="text" maxlength="5" class="form-control inputsRegistrarSaida" id="inputCodigoCadastrar" placeholder="Código">
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+              <input type="number" class="form-control inputsRegistrarSaida" id="inputQuantidadeCadastrar" placeholder="Quantidade">
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+              <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer d-flex align-items-center justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" id="btnCadastrar">Cadastrar</button>
+        </div>
+      </div>
     </div>
-  </footer>
+    </div>
+    <!-- Servicos Modal -->
+    <div class="modal fade" id="servicoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><strong>Cadastrar Serviços</strong>
+                <img src="../imgs/servico-nav.png" width="32px">          
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+              <form class="justify-content-center justify-content-center">
+      
+                <div class="d-flex align-items-center justify-content-center">
+                  <select class="form-select inputsRegistrarSaida" id="servicoTipo" aria-label="Tipo de transação">
+                    <option selected>Selecione um tipo</option>
+                    <option value="Serviço">Serviço</option>
+                    <option value="Venda">Venda</option>
+                  </select>
+                </div>
+      
+                <div class=" d-flex align-items-center justify-content-center">
+                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoPreco" placeholder="Preço (R$)">
+                </div>
+                <div class=" d-flex align-items-center justify-content-center">
+                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoCusto" placeholder="Custo (R$)">
+                </div>
+                <div class=" d-flex align-items-center justify-content-center">
+                  <input type="number" class="form-control inputsRegistrarSaida" id="servicoQuantidade" placeholder="Quantidade">
+                </div>
+                <div class=" d-flex align-items-center justify-content-center">
+                  <input type="datetime-local" class="form-control inputsRegistrarSaida" id="servicoData" placeholder="Data">
+                </div>
+                <div class=" d-flex align-items-center justify-content-center">
+                  <textarea class="form-control inputsRegistrarSaida" id="servicoObservacao" placeholder="Observação"></textarea>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                  <img src="../imgs/Loading.gif" width="32px" id="loading" style="display: none;">
+                </div>
+      
+              </form>
+            </div>
+            <div class="modal-footer d-flex align-items-center justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success" id="btnServicoCadastrar">Cadastrar</button>
+            </div>
+          </div>
+            </div>
+    </div>
+</main>
 
-  <script src="../js/pesquisarCodigo.js" defer></script>
-  <script src="../js/gerenciarcontas.js" defer></script>
-  <script src="../js/modoNoturno.js"></script>
+
+<footer class="footer">
+  <div class="container">
+    <p><strong>&copy; 2024 Chaveiro BS.</strong><br> Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="../js/pesquisarCodigo.js" defer></script>
+<script src="../js/gerenciarcontas.js" defer></script>
+<script src="../js/modoNoturno.js"></script>
 </body>
 </html>
