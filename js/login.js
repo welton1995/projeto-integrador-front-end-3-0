@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try {
         const emailRecuperar = document.querySelector('#forgotEmail');
 
-        const response = await fetch('http://localhost:3333/login/recuperar', {  
+        const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {  
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: emailRecuperar.value})
