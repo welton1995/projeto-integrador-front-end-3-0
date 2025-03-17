@@ -76,40 +76,83 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
   
-    // Recuperação de senha
-    document.getElementById("sendRecoveryEmail").addEventListener("click", async function() {
-        const forgotEmail = document.getElementById("forgotEmail").value;
-        const successMessage = document.getElementById("successMessage");
+    // // Recuperação de senha
+    // document.getElementById("sendRecoveryEmail").addEventListener("click", async function() {
+    //     const forgotEmail = document.getElementById("forgotEmail").value;
+    //     const successMessage = document.getElementById("successMessage");
   
-        if (!forgotEmail) {
-            successMessage.textContent = "Por favor, insira um email válido.";
-            successMessage.style.color = "red";
-            return;
-        }
+    //     if (!forgotEmail) {
+    //         successMessage.textContent = "Por favor, insira um email válido.";
+    //         successMessage.style.color = "red";
+    //         return;
+    //     }
   
-        try {
-            const response = await fetch('http://localhost:3333/forgot-password', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: forgotEmail })
-            });
+    //     try {
+    //         const response = await fetch('http://localhost:3333/forgot-password', {
+    //             method: 'POST',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ email: forgotEmail })
+    //         });
   
-            const data = await response.json();
+    //         const data = await response.json();
   
-            if (!response.ok) {
-                throw new Error(data.msg || 'Erro ao enviar email de recuperação.');
-            }
+    //         if (!response.ok) {
+    //             throw new Error(data.msg || 'Erro ao enviar email de recuperação.');
+    //         }
   
-            successMessage.textContent = "Email enviado com sucesso! Verifique sua caixa de entrada.";
-            successMessage.style.color = "green";
+    //         successMessage.textContent = "Email enviado com sucesso! Verifique sua caixa de entrada.";
+    //         successMessage.style.color = "green";
   
-        } catch (error) {
-            successMessage.textContent = error.message;
-            successMessage.style.color = "red";
-        }
-    });
+    //     } catch (error) {
+    //         successMessage.textContent = error.message;
+    //         successMessage.style.color = "red";
+    //     }
+    // });
 
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   });
+
+
+//   Recuperar email
+  const btnRecuperar = document.querySelector('#sendRecoveryEmail');
+  
+  btnRecuperar.addEventListener('click', async (event)=> {
+      event.preventDefault();
+      try {
+        const emailRecuperar = document.querySelector('#forgotEmail');
+
+        const response = await fetch('http://localhost:3333/login/recuperar', {  
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailRecuperar.value})
+        });
+
+        const data = await response.json();
+
+        if(response.status == 404) {
+            await Swal.fire({
+                title: `E-mail não encontrado!`,
+                icon: "info",
+              });
+            return;
+        }
+
+        if(response.status == 200) {
+            await Swal.fire({
+                title: 'E-mail enviado com sucesso!',
+                icon: 'success',
+                confirmButtonColor: "#5cb85c",
+            });
+            window.location.reload();
+        return;
+        }
+
+        console.log(data);
+        
+    } catch (error) {
+        console.log(error);
+    }
+
+  })
   
