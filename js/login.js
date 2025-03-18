@@ -116,10 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //   Recuperar email
   const btnRecuperar = document.querySelector('#sendRecoveryEmail');
+  const loading1 = document.querySelector('#loading1');
   
   btnRecuperar.addEventListener('click', async (event)=> {
       event.preventDefault();
       try {
+        loading1.style.display = 'block';
         const emailRecuperar = document.querySelector('#forgotEmail');
 
         const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {  
@@ -135,18 +137,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 title: `E-mail não encontrado!`,
                 icon: "info",
               });
+             loading1.style.display = 'none';
             return;
         }
 
         if(response.status == 200) {
+
             await Swal.fire({
                 title: 'E-mail enviado com sucesso!',
                 icon: 'success',
                 confirmButtonColor: "#5cb85c",
             });
+            
             window.location.reload();
-        return;
+            return;
         }
+
+
 
         console.log(data);
         

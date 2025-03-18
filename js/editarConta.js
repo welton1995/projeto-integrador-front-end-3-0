@@ -12,8 +12,7 @@ const usuarioEmail = document.querySelector('#usuarioEmail');
 const usuarioNome = document.querySelector('#usuarioNome');
 const usuarioSenha = document.querySelector('#usuarioSenha');
 const confirmaSenha = document.querySelector('#confirmaSenha');
-
-
+const imgloading = document.querySelector('#loading');
 
 
 usuarioEmail.value = email;
@@ -41,7 +40,7 @@ btnAtualizar.addEventListener('click', async (e) => {
 
       return;
     }
-
+    imgloading.style.display = 'block';
     const raw = {
       nome: usuarioNome.value,
       senha: usuarioSenha.value,
@@ -61,7 +60,7 @@ btnAtualizar.addEventListener('click', async (e) => {
 
  
       await Swal.fire({
-        title: "Serviço atualizado com sucesso!",
+        title: "Conta atualizada com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",
       });
