@@ -118,48 +118,88 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnRecuperar = document.querySelector('#sendRecoveryEmail');
   const loading1 = document.querySelector('#loading1');
   
-  btnRecuperar.addEventListener('click', async (event)=> {
-      event.preventDefault();
-      try {
-        loading1.style.display = 'block';
-        const emailRecuperar = document.querySelector('#forgotEmail');
+//   btnRecuperar.addEventListener('click', async (event)=> {
+//       event.preventDefault();
+//       try {
+//         loading1.style.display = 'block';
+//         const emailRecuperar = document.querySelector('#forgotEmail');
 
-        const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {  
+//         const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {  
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ email: emailRecuperar.value})
+//         });
+
+//         const data = await response.json();
+
+//         if(response.status == 404 || response.status == 500) {
+//             await Swal.fire({
+//                 title: `E-mail não encontrado!`,
+//                 icon: "info",
+//               });
+//              loading1.style.display = 'none';
+//             return;
+//         }
+
+//         if(response.status == 200) {
+
+//             await Swal.fire({
+//                 title: 'E-mail enviado com sucesso!',
+//                 icon: 'success',
+//                 confirmButtonColor: "#5cb85c",
+//             });
+            
+//             window.location.reload();
+//             return;
+//         }
+
+
+
+//         console.log(data);
+        
+//     } catch (error) {
+//         console.log(error);
+//     }
+
+//   })
+  
+btnRecuperar.addEventListener('click', async (event) => {
+    event.preventDefault();
+
+    try {
+        if (loading1) loading1.style.display = 'block';
+        const emailRecuperar = document.querySelector('#forgotEmail').value;
+
+        const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailRecuperar.value})
+            body: JSON.stringify({ email: emailRecuperar })
         });
 
         const data = await response.json();
 
-        if(response.status == 404) {
+        if (!response.ok) {
             await Swal.fire({
-                title: `E-mail não encontrado!`,
-                icon: "info",
-              });
-             loading1.style.display = 'none';
-            return;
-        }
-
-        if(response.status == 200) {
-
+                title: "Erro!",
+                text: data.msg || "Ocorreu um erro ao enviar o e-mail.",
+                icon: "error",
+            });
+        } else {
             await Swal.fire({
                 title: 'E-mail enviado com sucesso!',
                 icon: 'success',
                 confirmButtonColor: "#5cb85c",
             });
-            
             window.location.reload();
-            return;
         }
-
-
-
-        console.log(data);
-        
     } catch (error) {
-        console.log(error);
+        console.error("Erro ao enviar email de recuperação:", error);
+        await Swal.fire({
+            title: "Email não encontrado!",
+            text: "Tente novamente mais tarde.",
+            icon: "error",
+        });
+    } finally {
+        if (loading1) loading1.style.display = 'none';
     }
-
-  })
-  
+});
