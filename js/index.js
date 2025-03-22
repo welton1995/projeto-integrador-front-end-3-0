@@ -14,7 +14,7 @@ const loadingImg1 = document.querySelector('#loading');
 // Cadastrar Serviço
 btnCadastrarServico.addEventListener('click', async (e) => {
   e.preventDefault();
-  
+
   // Validações dos campos
   if (tipo.value === 'Selecione um tipo' || !tipo.value) {
     tipo.focus();

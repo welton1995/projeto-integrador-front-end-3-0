@@ -19,7 +19,7 @@ modelo.value = modeloURL;
 codigo.value = codigoURL;
 quantidade.value = quantidadeURL;
 
-confirmaSaida.addEventListener('click', async (event)=> {
+confirmaSaida.addEventListener('click', async (event) => {
   try {
     event.preventDefault();
     const requestOptions = {
@@ -33,7 +33,7 @@ confirmaSaida.addEventListener('click', async (event)=> {
     const resposta = await fetch(`${urlApi}/saidas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Saída não encontrada!'){
+    if (conteudo == 'Saída não encontrada!') {
       Swal.fire({
         title: "Saída não encontrada!",
         icon: "warning",
@@ -42,7 +42,7 @@ confirmaSaida.addEventListener('click', async (event)=> {
       return;
     };
 
-    if(conteudo == 'Falha ao excluir saída tente novamnte!'){
+    if (conteudo == 'Falha ao excluir saída tente novamnte!') {
       Swal.fire({
         title: "Falha ao excluir saída tente novamnte!",
         icon: "warning",
@@ -51,14 +51,14 @@ confirmaSaida.addEventListener('click', async (event)=> {
       return;
     }
 
-    if(conteudo == 'Saída excluida com sucesso!'){
+    if (conteudo == 'Saída excluida com sucesso!') {
       Swal.fire({
         title: "Saída excluida com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",
       });
 
-      setTimeout(()=> {
+      setTimeout(() => {
         window.location.href = './saidas.html';
       }, 1500)
 

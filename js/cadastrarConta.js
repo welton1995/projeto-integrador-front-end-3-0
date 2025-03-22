@@ -27,8 +27,8 @@ btnContaCadastrar.addEventListener('click', async (event) => {
       confirmButtonColor: "#0275d8",
     });
     return;
-  } 
-  
+  }
+
 
   contaLoading.style.display = 'block';
 
@@ -51,14 +51,14 @@ btnContaCadastrar.addEventListener('click', async (event) => {
     return;
   }
 
-  if(contaTipo.value === 'none') {
+  if (contaTipo.value === 'none') {
     await Swal.fire({
       title: "Selecione o tipo de usuário!",
       icon: "info",
       confirmButtonColor: "#5bc0de",
     });
     contaTipo.focus();
-  
+
     contaLoading.style.display = 'none';
 
     return;
@@ -74,7 +74,7 @@ btnContaCadastrar.addEventListener('click', async (event) => {
     });
 
     contaLoading.style.display = 'none';
-    
+
     contaEmail.focus();
     return;
   }

@@ -20,13 +20,13 @@ const excluir = async () => {
   <td class="text-center align-middle" title="Valor cobrado pelo serviço.">${precoURL}</td>
   <td class="text-center align-middle" title="Custo para realizar o serviço.">${custoURL}</td>
   <td class="text-center align-middle" title="Quantidade realizado(a).">${quantidadeURL}</td>
-  <td class="text-center align-middle" title="Lucro ganho pelo serviço realizado.">${((precoURL - custoURL) * quantidadeURL).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</td>
+  <td class="text-center align-middle" title="Lucro ganho pelo serviço realizado.">${((precoURL - custoURL) * quantidadeURL).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</td>
   <td class="text-center align-middle" title="Porcentagem de lucro ganha no serviço realizado. (Por unidade)">${(((precoURL - custoURL) / custoURL) * 100).toFixed(2)} % </td>
   <td class="text-center align-middle" title="Data que o serviço foi realizado.">${new Date(horaURL).toLocaleDateString('pt-BR')}</td>
   <td class="text-center align-middle" title="Observações.">${observacaoURL}</td>
 `;
 
-excluir.appendChild(tr);
+    excluir.appendChild(tr);
   } catch (error) {
     console.log(error);
   }
@@ -34,7 +34,7 @@ excluir.appendChild(tr);
 
 excluir();
 
-btnExcluir.addEventListener('click', async (e)=> {
+btnExcluir.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
     const requestOptions = {
@@ -48,7 +48,7 @@ btnExcluir.addEventListener('click', async (e)=> {
     const resposta = await fetch(`${apiTeste}/servicos/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo.message == 'Servico removido com sucesso!'){
+    if (conteudo.message == 'Servico removido com sucesso!') {
       await Swal.fire({
         title: "Serviço removido com sucesso!",
         icon: "success",

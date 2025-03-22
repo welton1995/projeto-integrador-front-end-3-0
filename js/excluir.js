@@ -26,8 +26,8 @@ const quantidadeCadastrar = document.querySelector('#inputQuantidadeCadastrar');
 const btnCadastrar = document.querySelector('#btnCadastrar');
 
 // cadastra chave
-btnCadastrar.addEventListener('click', async(event)=> {
-  if(!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
+btnCadastrar.addEventListener('click', async (event) => {
+  if (!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
     Swal.fire({
       title: "Preencha todos os campos e tente novamente!",
       icon: "info",
@@ -56,7 +56,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
     const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Código de chave já cadastrado!'){
+    if (conteudo == 'Código de chave já cadastrado!') {
       await Swal.fire({
         title: "Código de chave já cadastrado!",
         icon: "warning",
@@ -65,14 +65,14 @@ btnCadastrar.addEventListener('click', async(event)=> {
       return;
     }
 
-    if(conteudo == 'Chave cadastrada com sucesso!'){
-    await  Swal.fire({
+    if (conteudo == 'Chave cadastrada com sucesso!') {
+      await Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
 
-        window.location.href = './estoque.html';
+      window.location.href = './estoque.html';
 
     }
 
@@ -83,7 +83,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
 
 
 // Exclui chave do estoque
-confirmaSaida.addEventListener('click', async(event)=> {
+confirmaSaida.addEventListener('click', async (event) => {
   try {
     event.preventDefault();
     const requestOptions = {
@@ -97,8 +97,8 @@ confirmaSaida.addEventListener('click', async(event)=> {
     const resposta = await fetch(`${urlApi}/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Chave não encontrada!'){
-     await Swal.fire({
+    if (conteudo == 'Chave não encontrada!') {
+      await Swal.fire({
         title: "Chave não encontrada!",
         icon: "warning",
         confirmButtonColor: "#0275d8",
@@ -106,7 +106,7 @@ confirmaSaida.addEventListener('click', async(event)=> {
       return;
     };
 
-    if(conteudo == 'Falha ao excluir chave tente novamnte!'){
+    if (conteudo == 'Falha ao excluir chave tente novamnte!') {
       Swal.fire({
         title: "Falha ao excluir chave tente novamnte!",
         icon: "warning",
@@ -115,14 +115,14 @@ confirmaSaida.addEventListener('click', async(event)=> {
       return;
     }
 
-    if(conteudo == 'Chave excluida com sucesso!'){
-     await Swal.fire({
+    if (conteudo == 'Chave excluida com sucesso!') {
+      await Swal.fire({
         title: "Chave excluída com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",
       });
 
-        window.location.href = './estoque.html';
+      window.location.href = './estoque.html';
 
 
     };

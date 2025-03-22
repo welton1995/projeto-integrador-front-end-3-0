@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 setInterval(() => {
-  localStorage.clear(); 
+  localStorage.clear();
   window.location.reload();
-}, 3 * 60 * 60 * 1000); 
+}, 3 * 60 * 60 * 1000);
 
 const sair = document.querySelector("#sair");
 

@@ -42,19 +42,19 @@ observacaoServico.value = observacaoURL;
 btnAtualizar.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
-    if(!tipoServico.value || tipoServico.value == 'Selecione um tipo'){
+    if (!tipoServico.value || tipoServico.value == 'Selecione um tipo') {
       return tipoServico.focus();
     }
-    if(!precoServico.value){
+    if (!precoServico.value) {
       return precoServico.focus();
     }
-    if(!custoServico.value){
+    if (!custoServico.value) {
       return custoServico.focus();
     }
-    if(!quantidadeServicoAtualizar.value){
+    if (!quantidadeServicoAtualizar.value) {
       return quantidadeServicoAtualizar.focus();
     }
-    if(!horaServico.value){
+    if (!horaServico.value) {
       return horaServico.focus();
     }
 
@@ -79,7 +79,7 @@ btnAtualizar.addEventListener('click', async (e) => {
     const resposta = await fetch(`${apiServico}/servicos/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo.message == 'Servico editado com sucesso!'){
+    if (conteudo.message == 'Servico editado com sucesso!') {
       await Swal.fire({
         title: "Serviço atualizado com sucesso!",
         icon: "success",
@@ -88,7 +88,7 @@ btnAtualizar.addEventListener('click', async (e) => {
     }
     console.log(conteudo)
     window.location.href = './servicos.html';
-    
+
   } catch (error) {
     console.log(error);
   }
@@ -97,19 +97,19 @@ btnAtualizar.addEventListener('click', async (e) => {
 // Cadastrar
 btnCadastrarServicoModal.addEventListener('click', async () => {
   try {
-    if(tipoModal.value == 'Selecione um tipo' || !tipoModal.value){
+    if (tipoModal.value == 'Selecione um tipo' || !tipoModal.value) {
       return tipotipoModal.focus();
     }
-    if(!precoModal.value){
+    if (!precoModal.value) {
       return precoModal.focus();
     }
-    if(!custoModal.value){
+    if (!custoModal.value) {
       return custoModal.focus();
     }
-    if(!quantidadeServicoModal.value){
+    if (!quantidadeServicoModal.value) {
       return quantidadeServicoModal.focus();
     }
-    if(!horaModal.value){
+    if (!horaModal.value) {
       return horaModal.focus();
     }
 

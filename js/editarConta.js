@@ -31,19 +31,19 @@ btnAtualizar.addEventListener('click', async (e) => {
       confirmButtonColor: "#0275d8",
     });
     return;
-  } 
-  
+  }
+
   try {
-    if(!usuarioNome.value){
+    if (!usuarioNome.value) {
       return usuarioNome.focus();
     }
-    if(!usuarioSenha.value){
+    if (!usuarioSenha.value) {
       return usuarioSenha.focus();
     }
-    if(!confirmaSenha.value){
+    if (!confirmaSenha.value) {
       return confirmaSenha.focus();
     }
-    if(usuarioTipo.value == 'none'){
+    if (usuarioTipo.value == 'none') {
       await Swal.fire({
         title: "Selecione um tipo!",
         icon: "info",
@@ -51,7 +51,7 @@ btnAtualizar.addEventListener('click', async (e) => {
       return usuarioTipo.focus();
     }
 
-    if(usuarioSenha.value !== confirmaSenha.value ){
+    if (usuarioSenha.value !== confirmaSenha.value) {
       await Swal.fire({
         title: "Senhas não conferem. Tente novamente!",
         icon: "alert",
@@ -79,16 +79,16 @@ btnAtualizar.addEventListener('click', async (e) => {
     const resposta = await fetch(`${apiServico}/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
- 
-      await Swal.fire({
-        title: "Conta atualizada com sucesso!",
-        icon: "success",
-        confirmButtonColor: "#0275d8",
-      });
-    
+
+    await Swal.fire({
+      title: "Conta atualizada com sucesso!",
+      icon: "success",
+      confirmButtonColor: "#0275d8",
+    });
+
     console.log(conteudo)
     window.location.href = './gerenciarContas.html';
-    
+
   } catch (error) {
     console.log(error);
   }

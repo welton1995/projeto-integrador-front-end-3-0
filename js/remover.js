@@ -32,8 +32,8 @@ const quantidadeCadastrar = document.querySelector('#inputQuantidadeCadastrar');
 const btnCadastrar = document.querySelector('#btnCadastrar');
 
 // cadastra chave
-btnCadastrar.addEventListener('click', async(event)=> {
-  if(!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
+btnCadastrar.addEventListener('click', async (event) => {
+  if (!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
     Swal.fire({
       title: "Preencha todos os campos e tente novamente!",
       icon: "info",
@@ -62,7 +62,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
     const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Código de chave já cadastrado!'){
+    if (conteudo == 'Código de chave já cadastrado!') {
       Swal.fire({
         title: "Código de chave já cadastrado!",
         icon: "warning",
@@ -71,16 +71,16 @@ btnCadastrar.addEventListener('click', async(event)=> {
       return;
     }
 
-    if(conteudo == 'Chave cadastrada com sucesso!'){
+    if (conteudo == 'Chave cadastrada com sucesso!') {
       Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
 
-      setTimeout(()=> {
+      setTimeout(() => {
         window.location.href = './estoque.html';
-      }, 1500);  
+      }, 1500);
     }
 
   } catch (error) {
@@ -89,7 +89,7 @@ btnCadastrar.addEventListener('click', async(event)=> {
 });
 
 // Registra saidas do estoque
-confirmaSaida.addEventListener('click', async(event) => {
+confirmaSaida.addEventListener('click', async (event) => {
   try {
     event.preventDefault();
     const raw = {
@@ -105,7 +105,7 @@ confirmaSaida.addEventListener('click', async(event) => {
       }
     };
 
-    if(quantidadeSaida.value == 0){
+    if (quantidadeSaida.value == 0) {
       Swal.fire({
         title: "Quantidade deve ser maior ou igual a 1.",
         icon: "warning",
@@ -113,11 +113,11 @@ confirmaSaida.addEventListener('click', async(event) => {
       });
       return;
     }
-    
+
     const resposta = await fetch(`${urlApi}/saidas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Saldo insuficiente!'){
+    if (conteudo == 'Saldo insuficiente!') {
       Swal.fire({
         title: "Quantidade em estoque insuficiente!",
         icon: "warning",
@@ -126,14 +126,14 @@ confirmaSaida.addEventListener('click', async(event) => {
       return;
     }
 
-    if(conteudo == 'Saída realizada com sucesso!'){
-     await Swal.fire({
+    if (conteudo == 'Saída realizada com sucesso!') {
+      await Swal.fire({
         title: `${quantidadeSaida.value} unidades retiradas do estoque!`,
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
 
-        window.location.href = './estoque.html';
+      window.location.href = './estoque.html';
 
       return;
     }
@@ -143,16 +143,16 @@ confirmaSaida.addEventListener('click', async(event) => {
   }
 });
 
-    // Adiciona um evento de clique ao botão de mais
-    botaoMais.addEventListener('click', function(event) {
-      event.preventDefault();
-      inputNumero.value = parseInt(inputNumero.value) + 1;
-    });
+// Adiciona um evento de clique ao botão de mais
+botaoMais.addEventListener('click', function (event) {
+  event.preventDefault();
+  inputNumero.value = parseInt(inputNumero.value) + 1;
+});
 
-    // Adiciona um evento de clique ao botão de menos
-    botaoMenos.addEventListener('click', function(event) {
-      event.preventDefault();
-      if (parseInt(inputNumero.value) > 0) {
-        inputNumero.value = parseInt(inputNumero.value) - 1;
-      }
-    });
+// Adiciona um evento de clique ao botão de menos
+botaoMenos.addEventListener('click', function (event) {
+  event.preventDefault();
+  if (parseInt(inputNumero.value) > 0) {
+    inputNumero.value = parseInt(inputNumero.value) - 1;
+  }
+});

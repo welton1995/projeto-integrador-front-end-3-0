@@ -13,19 +13,19 @@ const email = params.get('email');
 contaNomeExcluir.value = usuario;
 contaEmailExcluir.value = email;
 
-btnExcluirConfirma.addEventListener('click', async (event)=> {
+btnExcluirConfirma.addEventListener('click', async (event) => {
   event.preventDefault();
 
-const userStorage = JSON.parse(localStorage.getItem('user'));
+  const userStorage = JSON.parse(localStorage.getItem('user'));
 
-if (userStorage && userStorage.tipo != "administrador") {
-  await Swal.fire({
-    html: `${userStorage.nome}, Você não possui permissão para remover usuários.<br> Fale com o Administrador!`,
-    icon: "info",
-    confirmButtonColor: "#0275d8",
-  });
-  return;
-} 
+  if (userStorage && userStorage.tipo != "administrador") {
+    await Swal.fire({
+      html: `${userStorage.nome}, Você não possui permissão para remover usuários.<br> Fale com o Administrador!`,
+      icon: "info",
+      confirmButtonColor: "#0275d8",
+    });
+    return;
+  }
 
   try {
     event.preventDefault();
@@ -40,8 +40,8 @@ if (userStorage && userStorage.tipo != "administrador") {
     const resposta = await fetch(`${url}/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(resposta.status === 404){
-     await Swal.fire({
+    if (resposta.status === 404) {
+      await Swal.fire({
         title: "Usuário não encontrado!",
         icon: "info",
         confirmButtonColor: "#0275d8",
@@ -49,8 +49,8 @@ if (userStorage && userStorage.tipo != "administrador") {
       return;
     }
 
-    if(resposta.status === 500){
-     await Swal.fire({
+    if (resposta.status === 500) {
+      await Swal.fire({
         title: "Falha ao excluir usuário tente novamnte!",
         icon: "info",
         confirmButtonColor: "#0275d8",
@@ -58,8 +58,8 @@ if (userStorage && userStorage.tipo != "administrador") {
       return;
     }
 
-    if(resposta.status === 200){
-     await Swal.fire({
+    if (resposta.status === 200) {
+      await Swal.fire({
         title: "Usuário excluido com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",

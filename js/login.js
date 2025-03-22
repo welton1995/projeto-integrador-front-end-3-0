@@ -165,10 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
 btnRecuperar.addEventListener('click', async (event) => {
     event.preventDefault();
+    const emailRecuperar = document.querySelector('#forgotEmail').value;
 
     try {
         if (loading1) loading1.style.display = 'block';
-        const emailRecuperar = document.querySelector('#forgotEmail').value;
 
         const response = await fetch('https://projeto-integrador-back-end-3-0.vercel.app/login/recuperar', {
             method: 'POST',
@@ -198,6 +198,9 @@ btnRecuperar.addEventListener('click', async (event) => {
             title: "Email não encontrado!",
             icon: "error",
         });
+
+        document.querySelector('#forgotEmail').value = '';
+        document.querySelector('#forgotEmail').focus();
     } finally {
         if (loading1) loading1.style.display = 'none';
     }

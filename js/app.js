@@ -11,14 +11,14 @@ const loading = document.querySelector('#loading');
 // Lista todas chaves cadastradas
 const buscaRegistros = async () => {
   try {
-      const requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
     };
     const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo.chaves.length == 0){
+    if (conteudo.chaves.length == 0) {
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td colspan="5" class="text-center">Estoque vazio.</td>
@@ -26,8 +26,8 @@ const buscaRegistros = async () => {
       tabela.appendChild(tr);
       return;
     }
- 
-    conteudo.chaves.reverse().forEach((chave)=>{
+
+    conteudo.chaves.reverse().forEach((chave) => {
       const tabela = document.querySelector('#tabela');
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -41,7 +41,7 @@ const buscaRegistros = async () => {
         <a href="./excluirChave.html?id=${chave._id}&nome=${chave.nome}&codigo=${chave.codigo}&quantidade=${chave.quantidade}"><img src="../imgs/lixeira.png" width="24px" title="Remover Chave" class='icon'></a>
       </td>
       `
-      tabela.appendChild(tr); 
+      tabela.appendChild(tr);
     });
     loading.style.display = 'none';
   } catch (error) {
@@ -53,9 +53,9 @@ const buscaRegistros = async () => {
 buscaRegistros();
 
 // Cadastra uma chave no Banco de dados
-btnCadastrar.addEventListener('click', async(event)=> {
+btnCadastrar.addEventListener('click', async (event) => {
   loading.style.display = 'block';
-  if(!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
+  if (!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
     Swal.fire({
       title: "Preencha todos os campos e tente novamente!",
       icon: "info",
@@ -84,26 +84,26 @@ btnCadastrar.addEventListener('click', async(event)=> {
     const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Código de chave já cadastrado!'){
+    if (conteudo == 'Código de chave já cadastrado!') {
       Swal.fire({
         title: "Código de chave já cadastrado!",
         icon: "warning",
         confirmButtonColor: "#5bc0de",
       });
-     loading.style.display = 'none';
+      loading.style.display = 'none';
       return;
     }
 
-    if(conteudo == 'Chave cadastrada com sucesso!'){
-     await  Swal.fire({
+    if (conteudo == 'Chave cadastrada com sucesso!') {
+      await Swal.fire({
         title: "Chave cadastrada com sucesso!",
         icon: "success",
         confirmButtonColor: "#5cb85c",
       });
-    loading.style.display = 'none';
+      loading.style.display = 'none';
     }
 
-      window.location.href = `${addressOk}/pages/estoque.html`;
+    window.location.href = `${addressOk}/pages/estoque.html`;
 
   } catch (error) {
     return console.log(error);

@@ -1,36 +1,36 @@
 // Função para aplicar o tema
 function applyTheme(isDarkMode) {
   const body = document.body;
-  const containers = document.querySelectorAll('.container-default'); // Seleciona todos os containers com a classe .container-default
+  const containers = document.querySelectorAll('.container-default');
   const nav = document.querySelector('.navbar');
   const cards = document.querySelectorAll('.card');
   const footer = document.querySelector('.footer');
   const toggleButton = document.getElementById('toggleDarkMode');
-  const buttons = document.querySelectorAll('.btns'); // Seleciona todos os botões com a classe .btns
-  const html = document.documentElement; // Seleciona a tag <html>
+  const buttons = document.querySelectorAll('.btns');
+  const html = document.documentElement;
 
   if (isDarkMode) {
-    // Aplica o modo noturno
+    // modo noturno
     body.classList.add('bg-dark', 'text-light');
-    containers.forEach(container => container.classList.add('container-default-dark')); // Aplica o tema escuro a todos os containers
+    containers.forEach(container => container.classList.add('container-default-dark'));
     nav.classList.add('header-dark', 'navbar-dark');
     nav.classList.remove('navbar-light');
     cards.forEach(card => card.classList.add('bg-dark', 'text-light', 'border-light'));
     footer.classList.add('footer-dark', 'text-light');
-    buttons.forEach(button => button.classList.add('btn-dark', 'text-light', 'border-light')); // Aplica o dark mode nos botões
+    buttons.forEach(button => button.classList.add('btn-dark', 'text-light', 'border-light'));
     toggleButton.textContent = '🌞';
-    html.setAttribute('data-bs-theme', 'dark'); // Adiciona o atributo ao <html>
+    html.setAttribute('data-bs-theme', 'dark');
   } else {
     // Remove o modo noturno
     body.classList.remove('bg-dark', 'text-light');
-    containers.forEach(container => container.classList.remove('container-default-dark')); // Remove o tema escuro de todos os containers
+    containers.forEach(container => container.classList.remove('container-default-dark'));
     nav.classList.remove('header-dark', 'navbar-dark');
     nav.classList.add('navbar-light');
     cards.forEach(card => card.classList.remove('bg-dark', 'text-light', 'border-light'));
     footer.classList.remove('footer-dark', 'text-light');
-    buttons.forEach(button => button.classList.remove('btn-dark', 'text-light', 'border-light')); // Remove o dark mode dos botões
+    buttons.forEach(button => button.classList.remove('btn-dark', 'text-light', 'border-light'));
     toggleButton.textContent = '🌙';
-    html.removeAttribute('data-bs-theme'); // Remove o atributo do <html>
+    html.removeAttribute('data-bs-theme');
   }
 }
 

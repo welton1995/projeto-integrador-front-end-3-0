@@ -3,32 +3,32 @@ const urlApi = 'https://pi3univesp.vercel.app/usuarios';
 
 // Lista todas chaves cadastradas
 const buscaRegistros = async () => {
-const loading = document.querySelector('#loading');
+  const loading = document.querySelector('#loading');
 
   try {
     loading.style.display = 'block';
-    
+
     const requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
+      method: 'GET',
+      redirect: 'follow'
     };
     const resposta = await fetch(urlApi, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo.users.length == 0){
+    if (conteudo.users.length == 0) {
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td colspan="5" class="text-center">Sem usuários cadastrados.</td>
       `
       tabela.appendChild(tr);
-    loading.style.display = 'none';
+      loading.style.display = 'none';
 
       return;
     }
 
     console.log(conteudo);
 
-    conteudo.users.reverse().forEach((usuario)=>{
+    conteudo.users.reverse().forEach((usuario) => {
       const tabela = document.querySelector('#tabela');
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -41,7 +41,7 @@ const loading = document.querySelector('#loading');
         <a href="./editarConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/editar.png" width="24px" title="Editar Usuario" class='icon'></a>
       </td>
       `
-      tabela.appendChild(tr); 
+      tabela.appendChild(tr);
     });
 
     loading.style.display = 'none';

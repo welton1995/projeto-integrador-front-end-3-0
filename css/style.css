@@ -79,7 +79,7 @@ main {
 }
 
 .logo:hover {
-  animation: rubberBand ease-in-out; 
+  animation: rubberBand ease-in-out;
   animation-duration: 1s;
 }
 
@@ -98,6 +98,7 @@ main {
   cursor: pointer;
 
 }
+
 .icon:hover {
   transform: scale(1.2);
   filter: drop-shadow(2px 2px 2px black);
@@ -106,7 +107,7 @@ main {
 .animacao {
   display: inline-block;
   margin: 0 0.5rem;
-  animation: heartBeat infinite ease-in-out; 
+  animation: heartBeat infinite ease-in-out;
   animation-duration: 10s;
   filter: drop-shadow(2px 2px 2px black);
 }
@@ -122,6 +123,7 @@ main {
   font-weight: 700;
   color: white;
 }
+
 .botao:hover {
   background-color: #00c5fbc2;
   font-weight: 700;
@@ -150,7 +152,8 @@ main {
   margin-bottom: 1rem;
 }
 
-.inputConfirmaSaida, .inputConfirmaEntrada {
+.inputConfirmaSaida,
+.inputConfirmaEntrada {
   width: 105px;
   margin: .5rem;
 }
@@ -172,30 +175,34 @@ tr:hover td {
 /* Barra de navegação */
 /* Estilo para a barra de rolagem vertical */
 ::-webkit-scrollbar {
-  width: 15px; /* Largura da barra de rolagem */
+  width: 15px;
+  /* Largura da barra de rolagem */
 }
 
 ::-webkit-scrollbar-thumb {
   background: #313333;
-   /* Cor do botão de rolagem */
+  /* Cor do botão de rolagem */
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Cor da área da barra de rolagem */
+  background-color: #f1f1f1;
+  /* Cor da área da barra de rolagem */
 }
 
 /* Estilo para a barra de rolagem horizontal */
 ::-webkit-scrollbar-horizontal {
-  height: 15px; /* Altura da barra de rolagem */
+  height: 15px;
+  /* Altura da barra de rolagem */
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
   background: #313333;
- /* Cor do botão de rolagem horizontal */
+  /* Cor do botão de rolagem horizontal */
 }
 
 ::-webkit-scrollbar-track:horizontal {
-  background-color: #f1f1f1; /* Cor da área da barra de rolagem horizontal */
+  background-color: #f1f1f1;
+  /* Cor da área da barra de rolagem horizontal */
 }
 
 .submenu {
@@ -213,10 +220,12 @@ tr:hover td {
 }
 
 
-th , td{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Opcional */
+th,
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Opcional */
 }
 
 
@@ -224,16 +233,18 @@ th , td{
   0% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(-30%);
   }
+
   100% {
     transform: translateX(0);
   }
 }
 
 
-.seta{
+.seta {
   display: none;
 }
 
@@ -245,15 +256,21 @@ th , td{
 }
 
 .img-container {
-  max-width: 90%; /* Reduz o tamanho da imagem para 80% da largura do container */
-  text-align: center; /* Centraliza a imagem dentro do container */
+  max-width: 90%;
+  /* Reduz o tamanho da imagem para 80% da largura do container */
+  text-align: center;
+  /* Centraliza a imagem dentro do container */
 }
 
 .card-img-top {
-  max-width: 100%; /* Garante que a imagem não ultrapasse o limite do container */
-  height: auto; /* Mantém a proporção da imagem */
-  border-radius: 8px; /* Adiciona bordas arredondadas, opcional */
-  object-fit: cover; /* Ajusta a imagem para caber no espaço sem distorção */
+  max-width: 100%;
+  /* Garante que a imagem não ultrapasse o limite do container */
+  height: auto;
+  /* Mantém a proporção da imagem */
+  border-radius: 8px;
+  /* Adiciona bordas arredondadas, opcional */
+  object-fit: cover;
+  /* Ajusta a imagem para caber no espaço sem distorção */
 }
 
 
@@ -266,7 +283,7 @@ th , td{
   font-family: "Vollkorn", serif;
   font-style: italic;
   font-weight: 700;
-  color:#fff;
+  color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
   animation: fadeIn 3s forwards;
   opacity: 0;
@@ -294,47 +311,67 @@ th , td{
 
 
 .loading-link {
-  position: relative; /* Necessário para posicionar o pseudo-elemento */
-  color: #fff; /* Cor do link */
-  text-decoration: none; /* Remove o sublinhado padrão */
-  font-size: 18px; /* Tamanho do texto */
-  padding: 10px 15px; /* Espaço em volta do link */
-  display: inline-block; /* Para que o pseudo-elemento fique alinhado corretamente */
-  transition: color 0.3s; /* Transição de cor */
+  position: relative;
+  /* Necessário para posicionar o pseudo-elemento */
+  color: #fff;
+  /* Cor do link */
+  text-decoration: none;
+  /* Remove o sublinhado padrão */
+  font-size: 18px;
+  /* Tamanho do texto */
+  padding: 10px 15px;
+  /* Espaço em volta do link */
+  display: inline-block;
+  /* Para que o pseudo-elemento fique alinhado corretamente */
+  transition: color 0.3s;
+  /* Transição de cor */
 }
 
 /* Estilo da barra de carregamento */
 .loading-link::after {
-  content: ''; /* Necessário para criar o pseudo-elemento */
+  content: '';
+  /* Necessário para criar o pseudo-elemento */
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0; /* Começa com 0 de largura */
-  height: 4px; /* Altura da barra */
-  background-color: #00c6fb; /* Cor da barra */
-  transition: width 0.8s ease; /* Transição da largura */
+  width: 0;
+  /* Começa com 0 de largura */
+  height: 4px;
+  /* Altura da barra */
+  background-color: #00c6fb;
+  /* Cor da barra */
+  transition: width 0.8s ease;
+  /* Transição da largura */
 }
 
 /* Efeito ao passar o mouse */
 .loading-link:hover::after {
-  width: 100%; /* A barra se expande ao passar o mouse */
+  width: 100%;
+  /* A barra se expande ao passar o mouse */
 }
 
 
 
 /* Estilo do botão no modo dark */
 .btn-dark-mode {
-  background-color: #1C1C1C; /* Fundo escuro */
-  color: #E0E0E0; /* Texto claro */
-  border: 1px solid #333; /* Borda discreta */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transições suaves */
+  background-color: #1C1C1C;
+  /* Fundo escuro */
+  color: #E0E0E0;
+  /* Texto claro */
+  border: 1px solid #333;
+  /* Borda discreta */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Transições suaves */
 }
 
 /* Estilo ao passar o mouse */
 .btn-dark-mode:hover {
-  background-color: #333; /* Fundo mais claro ao passar o mouse */
-  color: #FFFFFF; /* Texto mais claro */
-  border-color: #444; /* Borda mais clara */
+  background-color: #333;
+  /* Fundo mais claro ao passar o mouse */
+  color: #FFFFFF;
+  /* Texto mais claro */
+  border-color: #444;
+  /* Borda mais clara */
 }
 
 #loading {
@@ -342,4 +379,3 @@ th , td{
   align-items: center;
   text-align: center;
 }
-

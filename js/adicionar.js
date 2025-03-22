@@ -32,8 +32,8 @@ const quantidadeCadastrar = document.querySelector('#inputQuantidadeCadastrar');
 const btnCadastrar = document.querySelector('#btnCadastrar');
 
 // cadastra chave
-btnCadastrar.addEventListener('click', async(event)=> {
-  if(!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
+btnCadastrar.addEventListener('click', async (event) => {
+  if (!modeloCadastrar.value || !codigoCadastrar.value || !quantidadeCadastrar.value) {
     Swal.fire({
       title: "Preencha todos os campos e tente novamente!",
       icon: "info",

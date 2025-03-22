@@ -19,7 +19,7 @@ modelo.value = modeloURL;
 codigo.value = codigoURL;
 quantidade.value = quantidadeURL;
 
-confirmaSaida.addEventListener('click', async (event)=> {
+confirmaSaida.addEventListener('click', async (event) => {
   try {
     event.preventDefault();
     const requestOptions = {
@@ -33,7 +33,7 @@ confirmaSaida.addEventListener('click', async (event)=> {
     const resposta = await fetch(`${urlApi}/entradas/${id}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Entrada não encontrada!'){
+    if (conteudo == 'Entrada não encontrada!') {
       Swal.fire({
         title: "Entrada não encontrada!",
         icon: "warning",
@@ -42,7 +42,7 @@ confirmaSaida.addEventListener('click', async (event)=> {
       return;
     };
 
-    if(conteudo == 'Falha ao excluir entrada tente novamnte!'){
+    if (conteudo == 'Falha ao excluir entrada tente novamnte!') {
       Swal.fire({
         title: "Falha ao excluir entrada tente novamnte!",
         icon: "warning",
@@ -51,14 +51,14 @@ confirmaSaida.addEventListener('click', async (event)=> {
       return;
     }
 
-    if(conteudo == 'Entrada excluida com sucesso!'){
+    if (conteudo == 'Entrada excluida com sucesso!') {
       Swal.fire({
         title: "Entrada excluida com sucesso!",
         icon: "success",
         confirmButtonColor: "#0275d8",
       });
 
-      setTimeout(()=> {
+      setTimeout(() => {
         window.location.href = './entradas.html';
       }, 1500)
 

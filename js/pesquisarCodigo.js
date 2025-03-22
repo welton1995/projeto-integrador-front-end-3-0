@@ -6,9 +6,9 @@ const buscaCodigo = document.querySelector('#buscaCodigo');
 const btnBuscaCodigo = document.querySelector('#btnBuscaCodigo');
 
 // Pesquisa codigo
-btnBuscaCodigo.addEventListener('click', async(event)=> {
+btnBuscaCodigo.addEventListener('click', async (event) => {
   event.preventDefault();
-  if(!buscaCodigo.value){
+  if (!buscaCodigo.value) {
     Swal.fire({
       title: "Preencha o campo corretamente e tente novamente",
       icon: "info",
@@ -30,7 +30,7 @@ btnBuscaCodigo.addEventListener('click', async(event)=> {
     const resposta = await fetch(`${apiURL}/busca/${codigo}`, requestOptions);
     const conteudo = await resposta.json();
 
-    if(conteudo == 'Chave não encontrada!'){
+    if (conteudo == 'Chave não encontrada!') {
       Swal.fire({
         title: "Chave não consta no estoque!",
         icon: "info",
@@ -39,7 +39,7 @@ btnBuscaCodigo.addEventListener('click', async(event)=> {
       return buscaCodigo.value = '';
     }
 
-    if(conteudo){
+    if (conteudo) {
       Swal.fire({
         title: `${conteudo.nome}`,
         icon: "success",
