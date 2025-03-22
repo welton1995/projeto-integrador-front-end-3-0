@@ -21,6 +21,18 @@ usuarioNome.value = usuario;
 
 btnAtualizar.addEventListener('click', async (e) => {
   e.preventDefault();
+
+  const userStorage = JSON.parse(localStorage.getItem('user'));
+
+  if (userStorage && userStorage.tipo != "administrador") {
+    await Swal.fire({
+      text: `${userStorage.nome}, Você não possui permissão para editar usuários!`,
+      icon: "info",
+      confirmButtonColor: "#0275d8",
+    });
+    return;
+  } 
+  
   try {
     if(!usuarioNome.value){
       return usuarioNome.focus();

@@ -14,8 +14,22 @@ function validarEmail(email) {
   return regexEmail.test(email);
 }
 
+
 btnContaCadastrar.addEventListener('click', async (event) => {
   event.preventDefault(); // Impede o envio padrão do formulário
+
+  const userStorage = JSON.parse(localStorage.getItem('user'));
+
+  if (userStorage && userStorage.tipo != "administrador") {
+    await Swal.fire({
+      text: `${userStorage.nome}, Você não possui permissão para adicionar usuários!`,
+      icon: "info",
+      confirmButtonColor: "#0275d8",
+    });
+    return;
+  } 
+  
+
   contaLoading.style.display = 'block';
 
   // Verificar se todos os campos estão preenchidos

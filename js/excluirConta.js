@@ -15,6 +15,18 @@ contaEmailExcluir.value = email;
 
 btnExcluirConfirma.addEventListener('click', async (event)=> {
   event.preventDefault();
+
+const userStorage = JSON.parse(localStorage.getItem('user'));
+
+if (userStorage && userStorage.tipo != "administrador") {
+  await Swal.fire({
+    text: `${userStorage.nome}, Você não possui permissão para remover usuários!`,
+    icon: "info",
+    confirmButtonColor: "#0275d8",
+  });
+  return;
+} 
+
   try {
     event.preventDefault();
     const requestOptions = {
