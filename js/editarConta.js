@@ -10,6 +10,7 @@ const usuario = params.get('usuario');
 
 const usuarioEmail = document.querySelector('#usuarioEmail');
 const usuarioNome = document.querySelector('#usuarioNome');
+const usuarioTipo = document.querySelector('#usuarioTipo');
 const usuarioSenha = document.querySelector('#usuarioSenha');
 const confirmaSenha = document.querySelector('#confirmaSenha');
 const imgloading = document.querySelector('#loading');
@@ -30,6 +31,13 @@ btnAtualizar.addEventListener('click', async (e) => {
     if(!confirmaSenha.value){
       return confirmaSenha.focus();
     }
+    if(usuarioTipo.value == 'none'){
+      await Swal.fire({
+        title: "Selecione um tipo!",
+        icon: "info",
+      });
+      return usuarioTipo.focus();
+    }
 
     if(usuarioSenha.value !== confirmaSenha.value ){
       await Swal.fire({
@@ -44,6 +52,7 @@ btnAtualizar.addEventListener('click', async (e) => {
     const raw = {
       nome: usuarioNome.value,
       senha: usuarioSenha.value,
+      tipo: usuarioTipo.value,
     }
 
     const requestOptions = {

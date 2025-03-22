@@ -3,8 +3,10 @@ const api = 'https://pi3univesp.vercel.app/usuarios';
 const contaNome = document.querySelector('#contaNome');
 const contaEmail = document.querySelector('#contaEmail');
 const contaSenha = document.querySelector('#contaSenha');
+const contaTipo = document.querySelector('#contaTipo');
 const contaConfirmaSenha = document.querySelector('#contaConfirmaSenha');
 const btnContaCadastrar = document.querySelector('#btnContaCadastrar');
+const contaLoading = document.querySelector('#cadastrarLoading');
 
 // Função para validar e-mail
 function validarEmail(email) {
@@ -13,20 +15,37 @@ function validarEmail(email) {
 }
 
 btnContaCadastrar.addEventListener('click', async (event) => {
-  event.preventDefault();
-  
+  event.preventDefault(); // Impede o envio padrão do formulário
+  contaLoading.style.display = 'block';
+
   // Verificar se todos os campos estão preenchidos
   if (!contaNome.value || !contaEmail.value || !contaSenha.value || !contaConfirmaSenha.value) {
     await Swal.fire({
-      title: "Preencha todos os campos!",
+      title: "Preencha todos os campos corretamente!",
       icon: "warning",
       confirmButtonColor: "#5bc0de",
     });
 
     if (!contaNome.value) contaNome.focus();
     else if (!contaEmail.value) contaEmail.focus();
+    else if (contaTipo.value === 'none') contaTipo.focus();
     else if (!contaSenha.value) contaSenha.focus();
     else contaConfirmaSenha.focus();
+
+    contaLoading.style.display = 'none';
+
+    return;
+  }
+
+  if(contaTipo.value === 'none') {
+    await Swal.fire({
+      title: "Selecione o tipo de usuário!",
+      icon: "info",
+      confirmButtonColor: "#5bc0de",
+    });
+    contaTipo.focus();
+  
+    contaLoading.style.display = 'none';
 
     return;
   }
@@ -39,6 +58,9 @@ btnContaCadastrar.addEventListener('click', async (event) => {
       icon: "warning",
       confirmButtonColor: "#5bc0de",
     });
+
+    contaLoading.style.display = 'none';
+    
     contaEmail.focus();
     return;
   }
@@ -50,17 +72,23 @@ btnContaCadastrar.addEventListener('click', async (event) => {
       icon: "info",
       confirmButtonColor: "#5bc0de",
     });
+
+    contaLoading.style.display = 'none';
+
     contaSenha.focus();
     return;
   }
 
   // Verificar se a senha tem pelo menos 6 caracteres
-  if (contaSenha.value.length < 6 || contaConfirmaSenha.value.length < 6) {
+  if (contaSenha.value.length < 6) {
     await Swal.fire({
       title: "A senha deve ter no mínimo 6 caracteres!",
       icon: "info",
       confirmButtonColor: "#5bc0de",
     });
+
+    contaLoading.style.display = 'none';
+
     contaSenha.focus();
     return;
   }
@@ -69,16 +97,17 @@ btnContaCadastrar.addEventListener('click', async (event) => {
     const raw = {
       nome: contaNome.value,
       email: contaEmail.value,
-      senha: contaSenha.value
+      senha: contaSenha.value,
+      tipo: contaTipo.value
     };
 
     const requestOptions = {
       method: 'POST',
-      redirect: 'follow',
-      body: JSON.stringify(raw),
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify(raw),
+      redirect: 'follow'
     };
 
     const resposta = await fetch(api, requestOptions);
