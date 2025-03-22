@@ -196,7 +196,6 @@ btnRecuperar.addEventListener('click', async (event) => {
         console.error("Erro ao enviar email de recuperação:", error);
         await Swal.fire({
             title: "Email não encontrado!",
-            text: "Tente novamente mais tarde.",
             icon: "error",
         });
     } finally {
