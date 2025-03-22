@@ -20,7 +20,7 @@ const userStorage = JSON.parse(localStorage.getItem('user'));
 
 if (userStorage && userStorage.tipo != "administrador") {
   await Swal.fire({
-    text: `${userStorage.nome}, Você não possui permissão para remover usuários!`,
+    html: `${userStorage.nome}, Você não possui permissão para remover usuários.<br> Fale com o Administrador!`,
     icon: "info",
     confirmButtonColor: "#0275d8",
   });
@@ -73,7 +73,3 @@ if (userStorage && userStorage.tipo != "administrador") {
     console.log(error);
   }
 });
-
-
-
-contaNomeExcluir.value = 'welton'

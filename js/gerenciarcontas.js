@@ -18,9 +18,11 @@ const loading = document.querySelector('#loading');
     if(conteudo.users.length == 0){
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td colspan="5" class="text-center">Estoque vazio.</td>
+        <td colspan="5" class="text-center">Sem usuários cadastrados.</td>
       `
       tabela.appendChild(tr);
+    loading.style.display = 'none';
+
       return;
     }
 
@@ -33,6 +35,7 @@ const loading = document.querySelector('#loading');
 
       <td class="text-center align-middle">${usuario.nome}</a></td>
       <td class="text-center align-middle">${usuario.email}</a></td>
+      <td class="text-center align-middle">${usuario.tipo}</a></td>
       <td class="text-center align-middle">
         <a href="./excluirConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/lixeira.png" width="24px" title="Remover Usuario" class='icon'></a>
         <a href="./editarConta.html?id=${usuario._id}&usuario=${usuario.nome}&email=${usuario.email}"><img src="../imgs/editar.png" width="24px" title="Editar Usuario" class='icon'></a>
