@@ -74,8 +74,9 @@ body {
 }
 
 .logo {
-  filter: drop-shadow(5px 5px 5px #121212);
+  filter: drop-shadow(3px 3px 3px #121212);
   animation: shake 10s infinite ease-in-out;
+  cursor: pointer;
 }
 
 .formulario {
@@ -89,7 +90,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes shake {
+/* @keyframes shake {
   0% {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
@@ -133,4 +134,4 @@ body {
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
-}
+} */
